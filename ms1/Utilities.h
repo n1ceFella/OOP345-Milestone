@@ -19,9 +19,10 @@ namespace sdds
 	private:
 		int m_widthField{ 1 };
 		static char m_delimiter;
+
+	public:
 		static void setDelimiter(char newDelimiter);
 		static char getDelimiter();
-	public:
 		void setFieldWidth(size_t newWidth);
 		size_t getFieldWidth() const;
 		std::string extractToken(const std::string& str, size_t& next_pos, bool& more);
