@@ -17,10 +17,9 @@ namespace sdds
 	class Utilities
 	{
 	private:
-		int m_widthField{ 1 };
-		static char m_delimiter;
-
+		size_t m_widthField{ 1 };
 	public:
+		//static char m_delimiter;
 		static void setDelimiter(char newDelimiter);
 		static char getDelimiter();
 		void setFieldWidth(size_t newWidth);

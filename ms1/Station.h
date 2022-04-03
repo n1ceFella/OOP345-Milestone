@@ -13,18 +13,18 @@
 #include <list>
 namespace sdds
 {
-
 	class Station
 	{
 	private:
-		int m_id;
-		std::string m_itemName;
-		std::string m_description;
-		size_t m_nextSerial;
-		size_t itemsNum;
-		static int m_widthField; //default 0;
-		static int id_generator; //default 0;
+		int m_id{};
+		std::string m_itemName{};
+		std::string m_description{};
+		size_t m_nextSerial{};
+		size_t m_itemsNum{};
+
 	public:
+		//static size_t m_widthField; //default 0;
+		//static int id_generator; //default 0;
 		Station(const std::string& record);
 		const std::string& getItemName() const;
 		size_t getNextSerialNumber();
