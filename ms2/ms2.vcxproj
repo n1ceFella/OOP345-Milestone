@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CustomerOrder.h" />
     <ClInclude Include="Station.h" />
     <ClInclude Include="Utilities.h" />
   </ItemGroup>
@@ -28,6 +29,7 @@
     <Text Include="Stations2.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CustomerOrder.cpp" />
     <ClCompile Include="ms2.cpp" />
     <ClCompile Include="Station.cpp" />
     <ClCompile Include="Utilities.cpp" />
