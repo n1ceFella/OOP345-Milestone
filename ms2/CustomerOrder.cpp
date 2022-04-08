@@ -22,6 +22,28 @@ namespace sdds
 	CustomerOrder::CustomerOrder(CustomerOrder&& rightOperand) noexcept {
 		*this = std::move(rightOperand);
 	}
+	CustomerOrder& CustomerOrder::operator=(CustomerOrder&& rightOperand) noexcept {
+		if (this != &rightOperand)
+		{
+			for (size_t i = 0; i < m_cntItem; i++)
+			{
+				delete m_lstItem[i];
+			}
+			delete[] m_lstItem;
+			
+			m_lstItem = rightOperand.m_lstItem;
+
+			m_name = rightOperand.m_name;
+			m_product = rightOperand.m_product;
+			m_cntItem = rightOperand.m_cntItem;
+
+			rightOperand.m_lstItem = nullptr;
+			//rightOperand.m_name = "";
+			//rightOperand.m_product = "";
+			//rightOperand.m_cntItem = 0u;
+		}
+		return *this;
+	}
 	CustomerOrder::~CustomerOrder() {
 		for (size_t i = 0; i < m_cntItem; i++)
 		{
