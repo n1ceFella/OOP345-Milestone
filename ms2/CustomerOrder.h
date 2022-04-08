@@ -8,6 +8,9 @@
 
 #ifndef SDDS_CUSTOMERORDER_H
 #define SDDS_CUSTOMERORDER_H
+#include <string>
+#include <iostream>
+#include "Station.h"
 namespace sdds
 {
 	struct Item
