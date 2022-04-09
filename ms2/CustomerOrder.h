@@ -22,12 +22,13 @@ namespace sdds
 	};
 	class CustomerOrder
 	{
+	private:
 		std::string m_name{};
 		std::string m_product{};
 		size_t m_cntItem{};
 		Item** m_lstItem{};
 		static size_t m_widthField;
-
+	public:
 		CustomerOrder() {}
 		CustomerOrder(const std::string& order);
 		CustomerOrder(const CustomerOrder& rightOperand);
