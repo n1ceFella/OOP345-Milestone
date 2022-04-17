@@ -3,7 +3,9 @@
 // Student Number: 147302202
 // Email:          vlabliuk@myseneca.ca
 // Section:        NBB
-// Date:           09.04.2022
+// Date:           17.04.2022
+// I confirm that I am the only author of this file
+// and the content was created entirely by me.
 //==============================================
 
 #ifndef SDDS_CUSTOMERORDER_H
@@ -29,7 +31,7 @@ namespace sdds
 		Item** m_lstItem{};
 		static size_t m_widthField;
 	public:
-		CustomerOrder() {}
+		CustomerOrder() = default;
 		CustomerOrder(const std::string& order);
 		CustomerOrder(const CustomerOrder& rightOperand);
 		CustomerOrder& operator=(const CustomerOrder& rightOperand) = delete;

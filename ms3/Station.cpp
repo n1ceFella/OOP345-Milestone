@@ -3,7 +3,9 @@
 // Student Number: 147302202
 // Email:          vlabliuk@myseneca.ca
 // Section:        NBB
-// Date:           09.04.2022
+// Date:           17.04.2022
+// I confirm that I am the only author of this file
+// and the content was created entirely by me.
 //==============================================
 
 #include <string>
@@ -23,7 +25,7 @@ namespace sdds
 		m_id = ++id_generator;
 		size_t next_pos = 0;
 		Utilities util;
-		bool more;
+		bool more = true;
 		m_itemName = util.extractToken(record, next_pos, more);
 		m_nextSerial = stoi(util.extractToken(record, next_pos, more));
 		m_itemsNum = stoi(util.extractToken(record, next_pos, more));

@@ -3,7 +3,9 @@
 // Student Number: 147302202
 // Email:          vlabliuk@myseneca.ca
 // Section:        NBB
-// Date:           02.04.2022
+// Date:           17.04.2022
+// I confirm that I am the only author of this file
+// and the content was created entirely by me.
 //==============================================
 
 #ifndef SDDS_UTILITIES_H

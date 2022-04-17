@@ -3,7 +3,9 @@
 // Student Number: 147302202
 // Email:          vlabliuk@myseneca.ca
 // Section:        NBB
-// Date:           09.04.2022
+// Date:           17.04.2022
+// I confirm that I am the only author of this file
+// and the content was created entirely by me.
 //==============================================
 
 #include <string>
@@ -15,13 +17,12 @@
 using namespace std;
 namespace sdds
 {
-	size_t CustomerOrder::m_widthField = 0u;
+	size_t CustomerOrder::m_widthField = 0;
 
 	CustomerOrder::CustomerOrder(const string& str) {
 		size_t next_pos = 0;
 		Utilities util;
 		bool more = true;
-		//int i = 0;
 		m_name = util.extractToken(str, next_pos, more);
 		m_product = util.extractToken(str, next_pos, more);
 		for (size_t i = next_pos; i < str.size(); i++)
@@ -34,13 +35,8 @@ namespace sdds
 		m_cntItem++;
 		m_lstItem = new Item* [m_cntItem];
 		Item** p = m_lstItem;
-		//while(more)
-			//m_lstItem[i] = new Item(util.extractToken(str, next_pos, more));
-			//*p++ = new Item(util.extractToken(str, next_pos, more));
-		for (size_t i = 0; i < m_cntItem; i++)
-		{
-			m_lstItem[i] = new Item(util.extractToken(str, next_pos, more));
-		}
+		while(more)
+			*p++ = new Item(util.extractToken(str, next_pos, more));
 		m_widthField = m_widthField > util.getFieldWidth() ? m_widthField : util.getFieldWidth();
 	}
 
@@ -69,7 +65,7 @@ namespace sdds
 			rightOperand.m_lstItem = nullptr;
 			rightOperand.m_name = "";
 			rightOperand.m_product = "";
-			rightOperand.m_cntItem = 0u;
+			rightOperand.m_cntItem = 0;
 		}
 		return *this;
 	}
@@ -101,14 +97,15 @@ namespace sdds
 	void CustomerOrder::fillItem(Station& station, ostream& os) {
 		for (size_t i = 0; i < m_cntItem; i++)
 		{
-			if ( m_lstItem[i]->m_itemName == station.getItemName())
+			if (m_lstItem[i]->m_itemName == station.getItemName() && !m_lstItem[i]->m_isFilled)
 			{
 				if (station.getQuantity() > 0)
 				{
-					station.updateQuantity();
+
 					m_lstItem[i]->m_serialNumber = station.getNextSerialNumber();
+					station.updateQuantity();
 					m_lstItem[i]->m_isFilled = true;
-					os.width(4);
+					os.width(11);
 					os.setf(ios::right);
 					os << "Filled ";
 					os.unsetf(ios::right);
@@ -117,11 +114,11 @@ namespace sdds
 				}
 				else
 				{
+					os.width(19);
 					os.setf(ios::right);
 					os << "Unable to fill ";
 					os.unsetf(ios::right);
 					os << m_name << ", " << m_product << " [" << m_lstItem[i]->m_itemName << "]" << endl;
-					return;
 				}
 			}
 		}

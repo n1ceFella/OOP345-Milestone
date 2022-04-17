@@ -1,3 +1,13 @@
+//==============================================
+// Name:           Volodymyr Labliuk
+// Student Number: 147302202
+// Email:          vlabliuk@myseneca.ca
+// Section:        NBB
+// Date:           17.04.2022
+// I confirm that I am the only author of this file
+// and the content was created entirely by me.
+//==============================================
+
 #ifndef WORKSTATION_H
 #define WORKSTATION_H
 #include <deque>

@@ -1,3 +1,13 @@
+//==============================================
+// Name:           Volodymyr Labliuk
+// Student Number: 147302202
+// Email:          vlabliuk@myseneca.ca
+// Section:        NBB
+// Date:           17.04.2022
+// I confirm that I am the only author of this file
+// and the content was created entirely by me.
+//==============================================
+
 #include <iostream>
 #include "Workstation.h"
 
@@ -17,40 +27,21 @@ namespace sdds
 	}
 
 	bool Workstation::attemptToMoveOrder() {
-		//bool moved = false;
 		if (!m_orders.empty())
 		{
-			//CustomerOrder& order = m_orders.front();
-			// if the order is filled at this station, or the invetory of this station is insufficent (==0)
-			if (m_orders.front().isItemFilled(getItemName()) || !getQuantity()) //this->getQuantity() == 0
+			if (m_orders.front().isItemFilled(getItemName()) || !getQuantity())
 			{
-				//if there is a nextStation, move to next station
 				if (m_pNextStation)
 				{
 					*m_pNextStation += (std::move(m_orders.front()));
 
 				}
-				//if at the end of the managerLine
-				//move ot complete que if all items in the order is filled
-				//else move to incomplete que
 				else 
 					m_orders.front().isOrderFilled() ? 
 						g_completed.push_back(std::move(m_orders.front())) : 
 						g_incomplete.push_back(std::move(m_orders.front()));
-				//{
-				//	if (order.isOrderFilled())
-				//	{
-				//		completed.push_back(std::move(order));
-				//	}
-				//	else
-				//	{
-				//		incomplete.push_back(std::move(order));
-				//	}
-				//}
 				m_orders.pop_front();
-				//moved = true;
 				return true;
-				
 			}
 		}
 		return false;
@@ -68,14 +59,6 @@ namespace sdds
 		m_pNextStation ?
 			os << getItemName() << " --> " << m_pNextStation->getItemName() << std::endl :
 			os << getItemName() << " --> " << "End of Line" << std::endl;
-		//if (!m_pNextStation)
-		//{
-		//	os << getItemName() << " --> " << "End of Line" << std::endl;
-		//}
-		//else
-		//{
-		//	os << getItemName() << " --> " << m_pNextStation->getItemName() << std::endl;
-		//}
 	}
 
 	Workstation& Workstation::operator+=(CustomerOrder&& newOrder) {
