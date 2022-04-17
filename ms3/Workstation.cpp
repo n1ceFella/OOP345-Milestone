@@ -4,9 +4,9 @@
 using namespace std;
 namespace sdds 
 {
-	deque<CustomerOrder> pending{};
-	deque<CustomerOrder> completed{};
-	deque<CustomerOrder> incomplete{};
+	deque<CustomerOrder> g_pending{};
+	deque<CustomerOrder> g_completed{};
+	deque<CustomerOrder> g_incomplete{};
 
 	Workstation::Workstation(const string& record) : Station(record) {}
 
@@ -35,8 +35,8 @@ namespace sdds
 				//else move to incomplete que
 				else 
 					m_orders.front().isOrderFilled() ? 
-						completed.push_back(std::move(m_orders.front())) : 
-						incomplete.push_back(std::move(m_orders.front()));
+						g_completed.push_back(std::move(m_orders.front())) : 
+						g_incomplete.push_back(std::move(m_orders.front()));
 				//{
 				//	if (order.isOrderFilled())
 				//	{

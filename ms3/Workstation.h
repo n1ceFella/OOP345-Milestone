@@ -6,9 +6,9 @@
 
 namespace sdds 
 {
-	extern std::deque<CustomerOrder> m_pending;
-	extern std::deque<CustomerOrder> m_completed;
-	extern std::deque<CustomerOrder> m_incomplete;
+	extern std::deque<CustomerOrder> g_pending;
+	extern std::deque<CustomerOrder> g_completed;
+	extern std::deque<CustomerOrder> g_incomplete;
 
 	class Workstation : public Station
 	{
